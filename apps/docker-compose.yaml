@@ -1,0 +1,18 @@
+---
+version: '3.3'
+
+services:
+
+  hello-world:
+    build:
+      context: helloworld-api/
+    environment:
+    - spring_profiles_active=docker
+    ports:
+    - "8080:8080"
+    networks:
+      - base_default
+
+networks:
+  base_default:
+    external: true

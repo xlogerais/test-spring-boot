@@ -1,0 +1,28 @@
+---
+version: '3.3'
+
+services:
+
+  eureka:
+    build:
+      context: eureka/
+    environment:
+    - spring_profiles_active=docker
+    ports:
+    - "8761:8761"
+
+  admin-server:
+    build:
+      context: admin/
+    environment:
+    - spring_profiles_active=docker
+    ports:
+    - "9090:9090"
+
+  config-server:
+    build:
+      context: config/
+    environment:
+    - spring_profiles_active=docker
+    ports:
+    - "8888:8888"
