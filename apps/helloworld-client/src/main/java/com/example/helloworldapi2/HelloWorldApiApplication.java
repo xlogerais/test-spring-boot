@@ -23,6 +23,11 @@ public class HelloWorldApiApplication {
 		return client.hello();
 	}
 
+	@RequestMapping("/reply")
+	public String reply() {
+		return "Reply to hello";
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(HelloWorldApiApplication.class, args);
 	}
