@@ -18,3 +18,12 @@
     1. BUILD&START hello-world-client server
 1. TEST
     1. SEND successive **HTTP GET** request on http://localhost:8079 to see Ribbon choosing each of the available instances of hello-world-api through a secure **HTTPS** request
+
+
+## Ports settings
+- 8079: hello-world-client
+- 8080: hello-world-api
+- 8081: hello-world-api-2
+- 8761: eureka
+- 8888: spring cloud config
+- 9090: spring admin
