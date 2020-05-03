@@ -1,8 +1,15 @@
 ---
-
 # Eureka client config
 eureka:
+  instance:
+    nonSecurePortEnabled: true
+    securePortEnabled: true
+    securePort: ${server.port}
+    statusPageUrlPath: https://localhost:${server.port}/actuator/info
+    healthCheckUrlPath: https://localhost:${server.port}/actuator/health
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
   client:
+    securePortEnabled: true
     serviceUrl:
       defaultZone: "http://localhost:8761/eureka"
 
@@ -16,10 +23,21 @@ spring:
 # Actuator
 management:
   security:
-    enabled: false
+    enabled: true
   endpoints:
     web:
       exposure:
         include: "*"
     health:
       show-details: "always"
+
+# SSL
+server:
+  ssl:
+    key-alias: 1
+    key-store-type: PKCS12
+    key-store: classpath:keystore/dummy.p12
+    key-store-password: dummy
+    # To request 2 way authentication
+    # https://dzone.com/articles/secure-discovery-with-spring-cloud-netflix-eureka
+    # client-auth: need
