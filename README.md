@@ -18,6 +18,8 @@
     1. BUILD&START hello-world-client server
 1. TEST
     1. SEND successive **HTTP GET** request on http://localhost:8079 to see Ribbon choosing each of the available instances of hello-world-api through a secure **HTTPS** request
+    1. SEND successive **HTTPS GET** request on https://localhost:8080/reply (hello-world-api) to see Ribbon choosing each of the available instances of hello-world-client through a **HTTP** request
+    1. SEND successive **HTTPS GET** request on https://localhost:8081/reply (hello-world-api-2) to see Ribbon choosing each of the available instances of hello-world-client through a **HTTP** request
 
 
 ## Ports settings
