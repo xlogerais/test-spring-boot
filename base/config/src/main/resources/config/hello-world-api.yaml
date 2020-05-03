@@ -2,7 +2,7 @@
 # Eureka client config
 eureka:
   instance:
-    nonSecurePortEnabled: true
+    nonSecurePortEnabled: false
     securePortEnabled: true
     securePort: ${server.port}
     statusPageUrlPath: https://localhost:${server.port}/actuator/info
@@ -10,6 +10,7 @@ eureka:
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
   client:
     securePortEnabled: true
+    nonSecurePortEnabled: false
     serviceUrl:
       defaultZone: "http://localhost:8761/eureka"
 
